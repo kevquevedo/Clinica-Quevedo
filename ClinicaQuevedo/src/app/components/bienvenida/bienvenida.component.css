@@ -1,0 +1,39 @@
+.consultorio{
+  width: 100%;
+  height: 90vh;
+  background-image: url(../../../assets/consultorio.PNG);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0px;
+  display: flex;
+  align-items: center;
+}
+
+h2{
+  font-weight: bold;
+  font-size: 30pt;
+}
+
+.servicios{
+  font-weight: bold;
+  text-align: center;
+}
+
+.valores,
+.coberturas{
+  margin: 60px;
+}
+
+.titulo{
+  color: red;
+}
+
+.obrasocial{
+width: 70%;
+}
+
+.seccion{
+  display: flex;
+  flex-direction: row;
+  margin: 15px;
+}
