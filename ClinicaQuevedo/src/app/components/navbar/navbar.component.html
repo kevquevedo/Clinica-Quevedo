@@ -22,10 +22,17 @@
           </li>
         </ul>
 
-        <div class="text-end">
-          <button type="button" class="btn btn-info me-2" routerLink="registro">Iniciar Sesión</button>
-          <button type="button" class="btn btn-warning" routerLink="login">Registrarse</button>
-        </div>
+        <ng-container *ngIf="usuario == undefined">
+          <div class="text-end">
+            <button type="button" class="btn btn-info me-2" routerLink="/login">Iniciar Sesión</button>
+            <button type="button" class="btn btn-warning"  routerLink="/registro">Registrarse</button>
+          </div>
+        </ng-container>
+
+        <ng-container *ngIf="usuario != undefined" >
+          <small class="text-black mx-2">Hola <small class="text-primary">{{usuario}}</small> !</small>
+          <button type="button" class="btn btn-outline-danger cierre" id="cierre" (click)="cerrarSesion()">Cerrar Sesión</button>
+        </ng-container>
 
       </div>
     </div>

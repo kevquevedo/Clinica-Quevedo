@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Montserrat+Alternates:ital,wght@1,600&display=swap');
+
+h4{
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: 400;
+  font-size: 25pt;
+}
+
+.loguearse{
+  display: flex;
+  width: 100%;
+}
+
+.form-floating{
+  margin-bottom: 15px;
+}
+
+.imagen{
+  width: 70%;
+  height: 100vh;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+.imagen::before{
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 70%;
+  height: 100vh;
+  background-image: url(../../../assets/recepcion.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: brightness(50%);
+  opacity: 0.8;
+}
+
+h2,p{
+  margin: 60px;
+}
+h2{
+  margin-bottom: 10px;
+}
+p{
+  margin-top: 10px;
+}
+label{
+  margin-left: 2%;
+}
+
+.formularioDiv{
+  width: 30%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px
+}
+
+.logo{
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  margin: 30px;
+}
+
+.spinner{
+  width: 10%;
+}
+
+.loading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.loader{
+  width: 100px;
+  height: 100px;
+}

@@ -1,0 +1,22 @@
+.coberturas{
+  margin: 60px;
+}
+
+.titulo{
+  color: red;
+}
+
+.obrasocial{
+width: 70%;
+}
+
+.seccion{
+  display: flex;
+  flex-direction: row;
+  margin: 15px;
+}
+
+h2{
+  font-weight: bold;
+  font-size: 30pt;
+}

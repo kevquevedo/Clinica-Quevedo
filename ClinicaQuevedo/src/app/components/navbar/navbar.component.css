@@ -5,3 +5,12 @@ h4{
   font-weight: 400;
   font-size: 30pt;
 }
+
+small{
+  margin-right: 0;
+}
+
+.cierre{
+  margin-left: 0;
+}
+

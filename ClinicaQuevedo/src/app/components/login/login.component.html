@@ -1,1 +1,43 @@
-<p>login works!</p>
+<div class="loading" *ngIf="loading">
+  <img class="loader" src="../../../assets/spinners/loading.gif" alt="">
+</div>
+<main *ngIf="!loading" data-aos="zoom-in" >
+  <div class="loguearse">
+    <div class="imagen">
+      <h2 class="text-white">¡Bienvenido a Clínica Quevedo!</h2>
+      <p class="text-white">
+        Administrá tu información: cobertura, trámites y gestiones médicas. <br>
+        Todo en un mismo lugar, mucho más fácil.
+      </p>
+    </div>
+    <div class="formularioDiv">
+      <!-- FORMULARIO -->
+      <form [formGroup]="form" (ngSubmit)="loguearUsuario()" class="formulario container-fluid">
+        <div class="logo">
+          <img src="../../../assets/logo.png" alt="" width="70" height="70" class="bi me-2">
+          <h4 class="text-black">Clinica Quevedo</h4>
+        </div>
+        <div class="row">
+          <div class="form-floating form-control-group" >
+            <input type="email" class="form-control" id="mail" formControlName="mail">
+            <label class="form-label" for="mail">Email</label>
+          </div>
+
+          <div class="form-floating form-control-group" >
+            <input type="password" class="form-control" id="clave" formControlName="clave">
+            <label class="form-label" for="clave">Contraseña</label>
+          </div>
+        </div><br>
+
+        <div class="d-flex justify-content-center" *ngIf="spinner">
+          <img class="spinner" src="../../../assets/spinners/spinner.gif" alt="">
+        </div>
+        <small *ngIf="mensajeError" class="text-danger">{{mensajeError}}</small> <br>
+        <div class="d-grid gap-2 col-6 mx-auto">
+          <button type="submit" class="btn btn-danger">Ingresar</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</main>

@@ -11,6 +11,14 @@ import { RegistroComponent } from './components/registro/registro.component';
 import { LoginComponent } from './components/login/login.component';
 import { NosotrosComponent } from './components/nosotros/nosotros.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { ValoresComponent } from './components/valores/valores.component';
+import { CoberturasComponent } from './components/coberturas/coberturas.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { provideStorage,getStorage } from '@angular/fire/storage';
 
 @NgModule({
   declarations: [
@@ -22,11 +30,19 @@ import { FooterComponent } from './components/footer/footer.component';
     RegistroComponent,
     LoginComponent,
     NosotrosComponent,
-    FooterComponent
+    FooterComponent,
+    ValoresComponent,
+    CoberturasComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
+    provideStorage(() => getStorage())
   ],
   providers: [],
   bootstrap: [AppComponent]
