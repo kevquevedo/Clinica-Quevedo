@@ -1,0 +1,27 @@
+<div *ngIf="usuarioElegido == undefined" class="d-flex justify-content-center contenido shadow p-3 mb-5 bg-body-tertiary rounded">
+  <h4>No seleccionó ningún usuario!</h4>
+</div>
+<div *ngIf="usuarioElegido != undefined" class="d-flex justify-content-center contenido shadow p-3 mb-5 bg-body-tertiary rounded">
+  <div class="imagen">
+    <img *ngIf="usuarioElegido.rol == 'especialista' || usuarioElegido.rol == 'admin'" src="{{usuarioElegido.img}}" alt="">
+    <img *ngIf="usuarioElegido.rol == 'paciente'" src="{{usuarioElegido.imgs.url1}}" alt="">
+  </div>
+  <div class="datos">
+    <div class="nombre">
+      <h2>{{usuarioElegido.nombre}}</h2>
+      <h2>{{usuarioElegido.apellido}}</h2>
+    </div>
+    <div>
+      <h5>Edad: {{usuarioElegido.edad}}</h5>
+      <h5>DNI: {{usuarioElegido.dni}}</h5>
+      <h5>Email: {{usuarioElegido.email}}</h5>
+      <h5>Rol: {{usuarioElegido.rol | titlecase}}</h5>
+      <h5 *ngIf="usuarioElegido.rol == 'especialista'">Especialidad: {{usuarioElegido.especialidad | titlecase}}</h5>
+      <h5 *ngIf="usuarioElegido.rol == 'paciente'">Obra Social: {{usuarioElegido.obrasocial | titlecase}}</h5>
+    </div>
+  </div>
+  <div *ngIf="usuarioElegido.rol == 'especialista'" class="botones">
+    <button *ngIf="usuarioElegido.estado == true" type="button" class="btn btn-danger" (click)="inhabilitarEsp(usuarioElegido)">Inhabilitar</button>
+    <button *ngIf="usuarioElegido.estado == false" type="button" class="btn btn-success" (click)="habilitarEsp(usuarioElegido)">Habilitar</button>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<div>
+  <app-tabla-usuarios (especialistaSeleccionado)="tomarEspecialista($event)"></app-tabla-usuarios>
+
+  <div class="detalle">
+    <app-detalle-usuario [usuarioElegido]="usuarioRecibido"></app-detalle-usuario>
+  </div>
+
+  <div class="perfiles">
+    <h1>Alta de Perfiles</h1>
+    <div class="botones">
+      <button class="btn btn-outline-danger btn-paciente" type="button" routerLink="alta-paciente">Nuevo Paciente</button>
+      <button class="btn btn-outline-danger btn-especialista" type="button" routerLink="alta-especialista">Nuevo Especialista</button>
+      <button class="btn btn-outline-danger btn-admin" type="button" routerLink="alta-admin">Nuevo Admin</button>
+    </div>
+  </div>>
+
+</div>

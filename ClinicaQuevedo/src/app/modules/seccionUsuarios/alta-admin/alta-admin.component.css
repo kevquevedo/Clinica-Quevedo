@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Montserrat+Alternates:ital,wght@1,600&display=swap');
+
+h4{
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: 400;
+  font-size: 25pt;
+}
+
+.loading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.loader{
+  width: 100px;
+  height: 100px;
+}
+
+.registrarse{
+  display: flex;
+  width: 100%;
+}
+
+.eleccion,
+.divPaciente,
+.divEspecialista{
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.eleccion{
+  display: flex;
+  flex-direction: row;
+}
+
+.divPaciente,
+.divEspecialista{
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+h2, button{
+  margin: 10px;
+}
+
+button{
+  margin-top: 0;
+}
+
+h2,p{
+  margin: 60px;
+}
+h2{
+  margin-bottom: 10px;
+}
+p{
+  margin-top: 10px;
+}
+
+.divAdmin{
+  width: 70%;
+  display: flex;
+  align-items: center;
+}
+
+.divAdmin{
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  margin: 20px;
+}
+
+.resto{
+  width: 50%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo{
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  margin: 30px;
+}
+
+.spinner{
+  width: 5%;
+}
+
+button{
+  width: 100%;
+  height: 10vh;
+  font-size: 25pt;
+}
+
+
+

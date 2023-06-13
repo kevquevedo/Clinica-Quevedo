@@ -13,6 +13,7 @@ const routes: Routes = [
     [
       {path: '', component: BienvenidaComponent},
       {path:'nosotros', component: NosotrosComponent},
+      {path:'seccion-usuarios', loadChildren: () => import('./modules/seccionUsuarios/seccion-usuarios.module').then((m) => m.SeccionUsuariosModule)},
     ]
   },
   {path:'login', component: LoginComponent},

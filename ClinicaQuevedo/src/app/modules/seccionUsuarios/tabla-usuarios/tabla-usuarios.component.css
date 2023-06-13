@@ -1,0 +1,38 @@
+table{
+  width: 80%;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+th,
+td{
+  width: 120px;
+  margin: 80px;
+  text-align: center;
+  border: 2px solid black;
+}
+
+th{
+  background-color: aqua;
+}
+
+main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 30px;
+}
+
+.email{
+  width: 350px;
+}
+
+h1{
+  text-decoration: underline;
+  margin-bottom: 30px;
+}

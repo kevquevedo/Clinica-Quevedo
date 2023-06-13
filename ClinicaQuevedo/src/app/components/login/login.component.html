@@ -3,6 +3,7 @@
 </div>
 <main *ngIf="!loading" data-aos="zoom-in" >
   <div class="loguearse">
+
     <div class="imagen">
       <h2 class="text-white">¡Bienvenido a Clínica Quevedo!</h2>
       <p class="text-white">
@@ -10,6 +11,18 @@
         Todo en un mismo lugar, mucho más fácil.
       </p>
     </div>
+
+    <div class="accesosRapidos">
+      <h6>Accesos Rápidos</h6>
+      <div *ngFor="let user of usuariosAccesos">
+        <button type="button" class="btn btn-danger acceso" (click)="log(user.email)">
+          <img src="{{user.img}}" alt="" class="imgAcceso">
+          <p class="nombre">{{user.nombre}} {{user.apellido}}</p>
+          <p class="nombre">({{user.rol | titlecase}})</p>
+        </button>
+      </div>
+    </div>
+
     <div class="formularioDiv">
       <!-- FORMULARIO -->
       <form [formGroup]="form" (ngSubmit)="loguearUsuario()" class="formulario container-fluid">

@@ -20,6 +20,12 @@
               Nosotros
             </a>
           </li>
+          <li *ngIf="rol == 'admin'">
+            <a routerLink="seccion-usuarios" class="nav-link text-secondary">
+              <img src="../../../assets/icons/user-interface.png" alt="" width="30" height="30" class="bi d-block mx-auto mb-1">
+              Usuarios
+            </a>
+          </li>
         </ul>
 
         <ng-container *ngIf="usuario == undefined">
