@@ -63,4 +63,4 @@ Trabajan en ella profesionales de diversas especialidades, que ocupan los consul
 
 *En esta sección se podrá ver todos los datos de la cuenta logueada.*    
 
-![]
+![https://github.com/kevquevedo/Clinica-Quevedo/blob/main/mi-perfil-quevedo.PNG]
