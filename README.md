@@ -18,7 +18,7 @@ Trabajan en ella profesionales de diversas especialidades, que ocupan los consul
 *(Si estas logueado existen otras rutas como "Solicitar Turno. Mis Turnos, Usuarios" dependiendo el perfil que poseas.*
 *Desde el vertice superior derecho podemos ingresar al login y al registro, donde podremos iniciar sesión y/o registrarnos para poder acceder a las distintas rutas.*    
 
-![]()
+![](https://github.com/kevquevedo/Clinica-Quevedo/blob/main/home-quevedo.PNG)
 
 
 **Login**  
@@ -26,7 +26,7 @@ Trabajan en ella profesionales de diversas especialidades, que ocupan los consul
 *Desde aquí podremos iniciar sesión con nuestro mail y contraseña, ambos datos son requeridos para ingresar correctamente.*    
 *Se poseen 6 usuarios de prueba, con acceso rápido a la izquierda del login*    
 
-![]()
+![](https://github.com/kevquevedo/Clinica-Quevedo/blob/main/login-quevedo.PNG)
 
 **Pantalla Ingreso Registro**  
 
@@ -34,7 +34,7 @@ Trabajan en ella profesionales de diversas especialidades, que ocupan los consul
 *Para crear una cuenta de tipo paciente, seleccionaremos la imagen superior.*   
 *Para crear una cuenta de tipo especialista, seleccionaremos la imagen inferior.*   
 
-![]()
+![](https://github.com/kevquevedo/Clinica-Quevedo/blob/main/registro-quevedo.PNG)
 
 
 **Registro Usuario**  
@@ -45,10 +45,10 @@ Trabajan en ella profesionales de diversas especialidades, que ocupan los consul
 *Para los usuarios del tipo "Especialista" es necesario que los apruebe un ADMIN.*
 
 *Registro Paciente*
-![]()
+![](https://github.com/kevquevedo/Clinica-Quevedo/blob/main/registro-paciente.PNG)
 
 *Registro Especialista*
-![]()
+![](https://github.com/kevquevedo/Clinica-Quevedo/blob/main/registro-especialista.PNG)
 
 **Usuarios**  
 
@@ -56,5 +56,5 @@ Trabajan en ella profesionales de diversas especialidades, que ocupan los consul
 *En la misma se podrá observar un listado de pacientes y especialistas, estos ultimos podran ser habilitados e inhabilitados*
 *El administrador podra crear todos los tipos diferentes de cuenta: pacientes, especialistas y administradores*
 
-![]()
-![]()
+![](https://github.com/kevquevedo/Clinica-Quevedo/blob/main/usuarios-admin-1.PNG)
+![](https://github.com/kevquevedo/Clinica-Quevedo/blob/main/usuarios-admin-2.PNG)
