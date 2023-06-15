@@ -6,6 +6,24 @@ h4{
   font-size: 25pt;
 }
 
+.form-floating{
+  height: 70px;
+}
+
+.final{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.captcha{
+  width: 20%;
+}
+
+.registro{
+  width: 60%;
+}
+
 .loading{
   display: flex;
   justify-content: center;

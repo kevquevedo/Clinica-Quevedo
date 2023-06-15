@@ -69,8 +69,10 @@
           <img class="spinner" src="../../../assets/spinners/spinner.gif" alt="">
         </div>
         <small *ngIf="mensajeError" class="text-danger">{{mensajeError}}</small> <br>
-        <div class="d-grid gap-2 col-6 mx-auto">
-          <button type="submit" class="btn btn-danger">Registrar Paciente</button>
+
+        <div class="d-flex justify-content-center final">
+          <re-captcha (resolved)="resolved($event)" siteKey="6LfXuVYgAAAAACS99u4vJ-PYiWmPO-GpqSJ1LuWs"></re-captcha>
+          <button type="submit" class="btn btn-danger registro">Registrar Paciente</button>
         </div>
 
       </form>
@@ -146,8 +148,10 @@
           <img class="spinner" src="../../../assets/spinners/spinner.gif" alt="">
         </div>
         <small *ngIf="mensajeError" class="text-danger">{{mensajeError}}</small> <br>
-        <div class="d-grid gap-2 col-6 mx-auto">
-          <button type="submit" class="btn btn-danger">Registrar Especialista</button>
+
+        <div class="d-flex justify-content-center final">
+          <re-captcha (resolved)="resolved($event)" siteKey="6LfXuVYgAAAAACS99u4vJ-PYiWmPO-GpqSJ1LuWs"></re-captcha>
+          <button type="submit" class="btn btn-danger registro">Registrar Especialista</button>
         </div>
 
       </form>

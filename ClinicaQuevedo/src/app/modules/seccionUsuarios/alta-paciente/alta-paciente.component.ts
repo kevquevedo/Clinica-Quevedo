@@ -144,25 +144,26 @@ export class AltaPacienteComponent implements OnInit {
         getDownloadURL(imgRef)
         .then( url => {
           this.urlsPac.url1 = url
+          let img2 = imagenes[1];
+          let imgRef2 = ref(this.storage, `${img2.name}`);
+          uploadBytes(imgRef2, img2)
+          .then(()=>{
+            getDownloadURL(imgRef2)
+            .then( url => {
+              this.urlsPac.url2 = url;
+              exito("OK")
+            });
+          })
+          .catch( error => {
+            console.log(error)
+          })
         });
       })
       .catch( error => {
         console.log(error)
       })
 
-      let img2 = imagenes[1];
-      let imgRef2 = ref(this.storage, `${img2.name}`);
-      uploadBytes(imgRef2, img2)
-      .then(()=>{
-        getDownloadURL(imgRef2)
-        .then( url => {
-          this.urlsPac.url2 = url;
-          exito("OK")
-        });
-      })
-      .catch( error => {
-        console.log(error)
-      })
+
     })
   }
   crearPaciente(){

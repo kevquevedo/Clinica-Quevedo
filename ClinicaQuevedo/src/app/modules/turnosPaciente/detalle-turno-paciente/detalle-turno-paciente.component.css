@@ -1,0 +1,27 @@
+.contenido-info{
+  width: 800px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  border: 1px solid black;
+}
+
+.contenido{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  border: 1px solid black;
+}
+
+.botones,
+.datos{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 20px;
+}
+
+button{
+  margin: 10px;
+}

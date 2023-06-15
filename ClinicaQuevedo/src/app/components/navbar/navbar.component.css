@@ -12,5 +12,10 @@ small{
 
 .cierre{
   margin-left: 0;
+  height: 40px;
+}
+
+span{
+  margin-right: 20px;
 }
 

@@ -13,7 +13,7 @@ export class UsuarioService {
   public rol: string | undefined;
   private emailLogueado: Subject<string>;
   public emailLogueado$: Observable<string>;
-  private listUsuarios! : any;
+  public listUsuarios! : any;
 
   constructor(
     private auth: Auth,

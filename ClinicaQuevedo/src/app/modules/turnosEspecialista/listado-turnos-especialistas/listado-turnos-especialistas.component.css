@@ -1,0 +1,39 @@
+*{
+  box-sizing: border-box;
+}
+
+#barra{
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+#btnBuscar{
+  width: 80px;
+  border-radius: 5px;
+  margin-left: 5px;
+}
+
+input{
+  width: 260px;
+  border-radius: 5px;
+}
+
+.titulos{
+  background-color:rgb(223, 45, 45);
+}
+
+.neon-rojo{
+  margin: 0;
+  text-shadow: 0 0 5px red, 0 0 15px red, 0 0 30px red, 0 0 50px red;
+}
+
+.neon-verde{
+  margin: 0;
+  text-shadow: 0 0 5px green, 0 0 15px green, 0 0 30px green, 0 0 50px green;
+}
+
+.neon-amarillo{
+  margin: 0;
+  text-shadow: 0 0 5px yellow, 0 0 15px yellow, 0 0 30px yellow, 0 0 50px yellow;
+}

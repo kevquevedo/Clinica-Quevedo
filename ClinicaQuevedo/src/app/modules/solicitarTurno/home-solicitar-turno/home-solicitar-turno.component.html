@@ -1,0 +1,36 @@
+<div class="container py-4">
+  <header class="pb-2 mb-2 border-bottom">
+    <h2>Solicitar Turno</h2>
+  </header>
+  <div class="p-5 mb-4 bg-light rounded-3" id="contenedor">
+
+    <!--ESPECIALIDAD-->
+    <div class="container-fluid py-5 btnEspecialidades">
+      <div class="card" style="width: 18rem;">
+        <div class="card-header">
+          Seleccione la Especialidad
+        </div>
+        <ul class="list-group list-group-flush" *ngFor="let esp of especialidades">
+          <li class="list-group-item" (click)="eligeEspecialidad(esp)">{{esp.nombre | titlecase}}</li>
+        </ul>
+      </div>
+    </div>
+
+    <!--ESPECIALISTA-->
+    <div class="container-fluid py-5 btnEspecialidades" *ngIf="auxEspecialidad">
+      <h6>Seleccione el Especialista:</h6>
+      <tr *ngFor="let esp of especialistasFilter">
+        <div class="card" style="width: 18rem;">
+          <img src="{{esp.img}}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{esp.nombre}} {{esp.apellido}}</h5>
+            <button type="button" class="btn btn-primary" (click)="eligeEspecialista(esp)">Seleccionar</button>
+          </div>
+        </div>
+      </tr>
+    </div>
+
+    <!--DIA Y HORARIO-->
+    <div>    </div>
+
+</div>

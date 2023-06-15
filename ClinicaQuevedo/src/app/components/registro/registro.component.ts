@@ -26,6 +26,8 @@ export class RegistroComponent implements OnInit {
   urlsPac = {"url1":'', "url2":""}
   imagenEsp! : any
   urlEsp! : any;
+  captcha: string | undefined;
+  validado: boolean = false;
 
   constructor(
     private auth : Auth,
@@ -59,7 +61,6 @@ export class RegistroComponent implements OnInit {
       reingresoClave: new FormControl('', [Validators.minLength(6),Validators.required]),
     });
   }
-
   get nombre(){
     return this.formPac.get('nombre');
   }
@@ -84,7 +85,6 @@ export class RegistroComponent implements OnInit {
   get reingresoClave(){
     return this.formPac.get('reingresoClave');
   }
-
   evaluarErrorInputsPaciente(){
     if(!this.nombre?.valid){
       this.mensajeError = "El campo 'Nombre' no es válido."
@@ -136,9 +136,13 @@ export class RegistroComponent implements OnInit {
       this.ocultarMensaje();
       return false;
     }
+    else if(this.validado == false){
+      this.mensajeError = "Debe validar el captcha."
+      this.ocultarMensaje();
+      return false;
+    }
     return true;
   }
-
   verImagenes(event:any){
     this.cantidadImgs = false;
     let cantidad = event.target.files.length
@@ -148,7 +152,6 @@ export class RegistroComponent implements OnInit {
       this.imagenesAux.push(event.target.files[1]);
     }
   }
-
   subirImagenesPaciente(imagenes: any) : Promise<any>{
     return new Promise((exito)=>{
 
@@ -159,28 +162,28 @@ export class RegistroComponent implements OnInit {
         getDownloadURL(imgRef)
         .then( url => {
           this.urlsPac.url1 = url
+          let img2 = imagenes[1];
+          let imgRef2 = ref(this.storage, `${img2.name}`);
+          uploadBytes(imgRef2, img2)
+          .then(()=>{
+            getDownloadURL(imgRef2)
+            .then( url => {
+              this.urlsPac.url2 = url;
+              exito("OK")
+            });
+          })
+          .catch( error => {
+            console.log(error)
+          })
         });
       })
       .catch( error => {
         console.log(error)
       })
 
-      let img2 = imagenes[1];
-      let imgRef2 = ref(this.storage, `${img2.name}`);
-      uploadBytes(imgRef2, img2)
-      .then(()=>{
-        getDownloadURL(imgRef2)
-        .then( url => {
-          this.urlsPac.url2 = url;
-          exito("OK")
-        });
-      })
-      .catch( error => {
-        console.log(error)
-      })
+
     })
   }
-
   crearPaciente(){
     this.spinner= true;
     if(this.evaluarErrorInputsPaciente()){
@@ -192,7 +195,27 @@ export class RegistroComponent implements OnInit {
           this.uServ.actualizarUsuariosPaciente(
             this.nombre?.value, this.apellido?.value, this.edad?.value, this.dni?.value,
             this.obrasocial?.value, this.mail?.value, this.clave?.value, this.urlsPac, 'paciente');
-          this.uServ.loguearUsuario(this.mail?.value);
+
+            let auth = getAuth();
+            sendEmailVerification(auth.currentUser!)
+            .then( () => {
+              Swal.fire({
+                icon: 'success',
+                title: 'El Paciente se creó con éxito!',
+                text: 'Verifica la cuenta en tu casilla de email.',
+                showConfirmButton: false,
+                timer: 2000
+              })
+            })
+            .catch(()=>{
+              Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Ocurrió un error!',
+                showConfirmButton: false,
+                timer: 2000
+              })
+            })
           this.router.navigateByUrl('');
         })
       })
@@ -202,9 +225,15 @@ export class RegistroComponent implements OnInit {
       .finally( () => {
         this.spinner= false;
       })
+    }else{
+      this.spinner= false;
     }
   }
 
+  resolved(captchaResponse: string) {
+    this.captcha = captchaResponse;
+    this.validado = true;
+  }
 
   //ESPECIALISTA
   seguirEspecialista(){
@@ -222,7 +251,6 @@ export class RegistroComponent implements OnInit {
     });
     this.otrasEsp?.disable();
   }
-
   get nombreEsp(){
     return this.formEsp.get('nombre');
   }
@@ -250,7 +278,6 @@ export class RegistroComponent implements OnInit {
   get reingresoClaveEsp(){
     return this.formEsp.get('reingresoClave');
   }
-
   evaluarErrorInputsEspecialista(){
     if(!this.nombreEsp?.valid){
       this.mensajeError = "El campo 'Nombre' no es válido."
@@ -307,9 +334,13 @@ export class RegistroComponent implements OnInit {
       this.ocultarMensaje();
       return false;
     }
+    else if(this.validado == false){
+      this.mensajeError = "Debe validar el captcha."
+      this.ocultarMensaje();
+      return false;
+    }
     return true;
   }
-
   verificarInputsEspecialidad() : boolean{
     if(this.otrasEsp?.enabled == true && this.otrasEsp?.valid == true){
       return false;
@@ -317,7 +348,6 @@ export class RegistroComponent implements OnInit {
       return true;
     }
   }
-
   verificarHabilitarOtras(){
     if(this.especialidad?.value == "otra"){
       this.otrasEsp?.enable();
@@ -326,7 +356,6 @@ export class RegistroComponent implements OnInit {
       this.otrasEsp?.reset();
     }
   }
-
   subirImagenEspecilista() : Promise<any>{
     return new Promise((exito)=>{
       let file = this.imagenEsp;
@@ -344,11 +373,9 @@ export class RegistroComponent implements OnInit {
       })
     })
   }
-
   verImagenEsp(event:any){
     this.imagenEsp = event.target.files[0];
   }
-
   crearEspecialista(){
     this.spinner= true;
     if(this.evaluarErrorInputsEspecialista()){
@@ -400,6 +427,8 @@ export class RegistroComponent implements OnInit {
       .finally( () => {
         this.spinner= false;
       })
+    }else{
+      this.spinner= false;
     }
   }
 
@@ -421,7 +450,6 @@ export class RegistroComponent implements OnInit {
       break;
     }
   }
-
   ocultarMensaje(){
     setTimeout(() =>{ this.mensajeError = undefined },3000)
   }

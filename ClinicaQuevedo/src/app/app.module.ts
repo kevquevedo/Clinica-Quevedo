@@ -19,6 +19,9 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideStorage,getStorage } from '@angular/fire/storage';
+import { PipesModule } from './pipes/pipes.module';
+import { RecaptchaModule } from 'ng-recaptcha';
+
 
 @NgModule({
   declarations: [
@@ -32,13 +35,15 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     NosotrosComponent,
     FooterComponent,
     ValoresComponent,
-    CoberturasComponent
+    CoberturasComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    PipesModule,
     ReactiveFormsModule,
+    RecaptchaModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),

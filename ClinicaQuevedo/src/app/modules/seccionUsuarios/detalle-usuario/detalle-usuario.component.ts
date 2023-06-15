@@ -18,7 +18,6 @@ export class DetalleUsuarioComponent implements OnInit{
 
   inhabilitarEsp(usuarioElegido : any){
     this.uServ.actualizarEspecialista(usuarioElegido, false);
-
     this.uServ.obtenerUsuarios().subscribe( respuesta =>{
       respuesta.forEach((usuario: any) => {
         if( (usuario as any).email == usuarioElegido.email){

@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         respuesta.forEach(usuario => {
           if((usuario as any).email == 'a.fernandez@clinica.com' ||
              (usuario as any).email == 'g.gutierrez@clinica.com' ||
-             (usuario as any).email == 'p.perez@clinica.com' ||
+             (usuario as any).email == 'lekeco3900@anomgo.com' ||
              (usuario as any).email == 'pijebof307@onlcool.com' ||
              (usuario as any).email == 'r.ramirez@clinica.com' ||
              (usuario as any).email == 'quevedo.kevin1994@gmail.com' ){
@@ -147,7 +147,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         setTimeout(() =>{ this.loguearUsuario() }, 2000)
       break;
 
-      case 'p.perez@clinica.com':
+      case 'lekeco3900@anomgo.com':
         this.obtenerDatosUsuario(email);
         setTimeout(() =>{ this.loguearUsuario() }, 2000)
       break;

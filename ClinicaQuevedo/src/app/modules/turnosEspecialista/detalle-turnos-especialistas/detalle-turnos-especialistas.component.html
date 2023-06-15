@@ -1,0 +1,31 @@
+<div *ngIf="turnoElegido == undefined" class="d-flex justify-content-center contenido shadow p-3 mb-5 bg-body-tertiary rounded">
+  <h4>No seleccionó ningún turno!</h4>
+</div>
+<div *ngIf="turnoElegido != undefined" class="d-flex justify-content-center contenido-info shadow p-3 mb-5 bg-body-tertiary rounded">
+  <div class="imagen">
+    <img *ngIf="turnoElegido.rol == 'especialista' || turnoElegido.rol == 'admin'" src="{{turnoElegido.img}}" alt="">
+    <img *ngIf="turnoElegido.rol == 'paciente'" src="{{turnoElegido.imgs.url1}}" alt="">
+  </div>
+  <div class="datos">
+    <div class="nombre">
+      <h2>{{turnoElegido.especialidad}}</h2>
+      <h2>{{turnoElegido.especialista}}</h2>
+    </div>
+    <div>
+      <h5>Email: {{turnoElegido.pacienteEmail}}</h5>
+      <h5>Especialidad: {{turnoElegido.especialidad}}</h5>
+      <h5>Especialista: {{turnoElegido.especialista}}</h5>
+    </div>
+  </div>
+  <div class="botones">
+    <!-- BOTON CANCELAR-->
+    <button *ngIf="turnoElegido.estado != 'realizado' && turnoElegido.estado != 'aceptado' && turnoElegido.estado != 'rechazado'" type="button" class="btn btn-danger" (click)="cancelarTurno(turnoElegido)">Cancelar Turno</button>
+    <!-- BOTON RECHAZAR-->
+    <button *ngIf="turnoElegido.estado != 'realizado' && turnoElegido.estado != 'aceptado' && turnoElegido.estado != 'cancelado'" type="button" class="btn btn-success" (click)="rechazarTurno(turnoElegido)">Rechazar Turno</button>
+    <!-- BOTON ACEPTAR-->
+    <button *ngIf="turnoElegido.estado != 'realizado' && turnoElegido.estado != 'cancelado' && turnoElegido.estado != 'rechazado'" type="button" class="btn btn-success" (click)="aceptarTurno(turnoElegido)">Aceptar Turno</button>
+    <!-- BOTON FINALIZAR-->
+    <button *ngIf="turnoElegido.estado == 'aceptado'" type="button" class="btn btn-success" (click)="finalizarTurno(turnoElegido)">Finalizar Turno</button>
+    <!-- BOTON RESEÑA-->
+  </div>
+</div>

@@ -12,11 +12,13 @@ export class NavbarComponent implements OnInit, OnDestroy {
   usuario: string | undefined;
   rol: string | undefined;
   subsUsuario!: Subscription;
+  fotoPerfil! : any;
 
   constructor(
     private uServ : UsuarioService
   ){
     this.usuario = this.uServ.usuarioRegistrado;
+    this.verificarImagen(this.uServ.usuarioRegistrado);
     this.rol = this.uServ.rol;
   }
 
@@ -33,6 +35,20 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   cerrarSesion(){
     this.uServ.logOut();
+  }
+
+  verificarImagen(email : any){
+    if(this.uServ.listUsuarios != undefined){
+      this.uServ.listUsuarios.forEach( (usuario: any) => {
+        if((usuario as any).email == email){
+          if(usuario.rol == 'especialista' || usuario.rol == 'admin'){
+            this.fotoPerfil = usuario.img;
+          }else{
+            this.fotoPerfil = usuario.imgs.url1;
+          }
+        }
+      });
+    }
   }
 
 }

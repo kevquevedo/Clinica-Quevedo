@@ -1,6 +1,6 @@
 <header>
   <div class="px-3 py-2 text-bg-light border-bottom">
-    <div class="container">
+    <div class="container-fluid">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
         <a class="d-flex align-items-end my-2 my-lg-0 me-lg-auto text-black text-decoration-none">
           <img src="../../../assets/logo.png" alt="" width="70" height="70" class="bi me-2">
@@ -26,6 +26,36 @@
               Usuarios
             </a>
           </li>
+          <li *ngIf="rol == 'paciente'">
+            <a routerLink="turnos-paciente" class="nav-link text-secondary">
+              <img src="../../../assets/icons/calendario.png" alt="" width="30" height="30" class="bi d-block mx-auto mb-1">
+              Mis Turnos
+            </a>
+          </li>
+          <li *ngIf="rol == 'especialista'">
+            <a routerLink="turnos-especialista" class="nav-link text-secondary">
+              <img src="../../../assets/icons/calendario.png" alt="" width="30" height="30" class="bi d-block mx-auto mb-1">
+              Mis Turnos
+            </a>
+          </li>
+          <li *ngIf="rol == 'admin'">
+            <a routerLink="turnos-admin" class="nav-link text-secondary">
+              <img src="../../../assets/icons/calendario.png" alt="" width="30" height="30" class="bi d-block mx-auto mb-1">
+              Turnos
+            </a>
+          </li>
+          <li *ngIf="rol == 'admin' || rol == 'paciente'">
+            <a routerLink="solicitar-turno" class="nav-link text-secondary">
+              <img src="../../../assets/icons/solicitar.png" alt="" width="30" height="30" class="bi d-block mx-auto mb-1">
+              Solicitar Turno
+            </a>
+          </li>
+          <li *ngIf="rol == 'admin' || rol == 'paciente' || rol == 'especialista'">
+            <a routerLink="mi-perfil" class="nav-link text-secondary">
+              <img src="../../../assets/icons/mi-perfil.png" alt="" width="30" height="30" class="bi d-block mx-auto mb-1">
+              Mi Perfil
+            </a>
+          </li>
         </ul>
 
         <ng-container *ngIf="usuario == undefined">
@@ -36,8 +66,10 @@
         </ng-container>
 
         <ng-container *ngIf="usuario != undefined" >
-          <small class="text-black mx-2">Hola <small class="text-primary">{{usuario}}</small> !</small>
-          <button type="button" class="btn btn-outline-danger cierre" id="cierre" (click)="cerrarSesion()">Cerrar Sesión</button>
+          <span class="badge d-flex align-items-center p-1 pe-2 text-info-emphasis bg-info-subtle border border-info-subtle rounded-pill">
+            <img class="rounded-circle me-1" width="40" height="40" src="{{fotoPerfil}}" alt="">{{usuario}}
+          </span>
+          <button type="button" class="btn btn-outline-danger cierre rounded-pill" id="cierre" (click)="cerrarSesion()">Cerrar Sesión</button>
         </ng-container>
 
       </div>

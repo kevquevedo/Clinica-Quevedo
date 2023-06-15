@@ -1,0 +1,33 @@
+<main>
+  <div class="card shadow-lg p-3 bg-info bg-opacity-10 border border-info rounded" style="width: 400px;" *ngIf="usuarioDatos">
+    <img src="{{usuarioDatos.img}}" class="card-img-top" alt="..." *ngIf="usuarioDatos.rol == 'admin' || usuarioDatos.rol == 'especialista' ">
+    <div id="carouselExample" class="carousel slide" *ngIf="usuarioDatos.rol == 'paciente'">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="{{usuarioDatos.imgs.url1}}" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="{{usuarioDatos.imgs.url2}}" class="d-block w-100" alt="...">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <!-- <img src="{{usuarioDatos.imgs.url1}}" class="card-img-top" alt="..." *ngIf="usuarioDatos.rol == 'paciente'"> -->
+    <div class="card-body">
+      <h3 class="card-title fw-bold">{{usuarioDatos.nombre}} {{usuarioDatos.apellido}}</h3>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"> <strong>Email: </strong>{{usuarioDatos.email}}</li>
+      <li class="list-group-item"> <strong>DNI: </strong>{{usuarioDatos.dni | dniPipe}}</li>
+      <li class="list-group-item"> <strong>Edad: </strong>{{usuarioDatos.edad}}</li>
+      <li class="list-group-item"> <strong>Perfil: </strong>{{usuarioDatos.rol | titlecase}}</li>
+    </ul>
+  </div>
+</main>
