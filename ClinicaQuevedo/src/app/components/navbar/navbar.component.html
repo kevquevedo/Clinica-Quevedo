@@ -26,6 +26,12 @@
               Usuarios
             </a>
           </li>
+          <li *ngIf="rol == 'especialista'">
+            <a routerLink="seccion-pacientes" class="nav-link text-secondary">
+              <img src="../../../assets/icons/user-interface.png" alt="" width="30" height="30" class="bi d-block mx-auto mb-1">
+              Pacientes
+            </a>
+          </li>
           <li *ngIf="rol == 'paciente'">
             <a routerLink="turnos-paciente" class="nav-link text-secondary">
               <img src="../../../assets/icons/calendario.png" alt="" width="30" height="30" class="bi d-block mx-auto mb-1">

@@ -24,7 +24,7 @@ export class ListadoTurnosPacientesComponent implements OnInit {
     this.tServ.obtenerTurnos().subscribe(respuesta =>{
       this.listadoTurnosUsuario = [];
       respuesta.forEach( (turno:any) => {
-        if(turno.pacienteEmail == auth.currentUser!.email){
+        if(turno.paciente.email == auth.currentUser!.email){
           this.listadoTurnosUsuario.push(turno);
         }
       });

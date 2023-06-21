@@ -3,18 +3,29 @@
 </div>
 <div *ngIf="turnoElegido != undefined" class="d-flex justify-content-center contenido-info shadow p-3 mb-5 bg-body-tertiary rounded">
   <div class="imagen">
-    <img *ngIf="turnoElegido.rol == 'especialista' || turnoElegido.rol == 'admin'" src="{{turnoElegido.img}}" alt="">
-    <img *ngIf="turnoElegido.rol == 'paciente'" src="{{turnoElegido.imgs.url1}}" alt="">
+    <img src="{{turnoElegido.paciente.imgs.url1}}" alt="">
   </div>
   <div class="datos">
     <div class="nombre">
-      <h2>{{turnoElegido.especialidad}}</h2>
-      <h2>{{turnoElegido.especialista}}</h2>
+      <h1>Paciente</h1>
     </div>
     <div>
-      <h5>Email: {{turnoElegido.pacienteEmail}}</h5>
-      <h5>Especialidad: {{turnoElegido.especialidad}}</h5>
-      <h5>Especialista: {{turnoElegido.especialista}}</h5>
+      <h5>Nombre: {{turnoElegido.paciente.nombre|titlecase}} {{turnoElegido.paciente.apellido|titlecase}}</h5>
+      <h5>Email: {{turnoElegido.paciente.email}}</h5>
+      <h5>Obra Social: {{turnoElegido.paciente.obrasocial}}</h5>
+    </div>
+  </div>
+  <div class="imagen">
+    <img src="{{turnoElegido.especialista.img}}" alt="">
+  </div>
+  <div class="datos">
+    <div class="nombre">
+      <h1>Especialista</h1>
+    </div>
+    <div>
+      <h5>Nombre: {{turnoElegido.especialista.nombre|titlecase}} {{turnoElegido.especialista.apellido|titlecase}}</h5>
+      <h5>Email: {{turnoElegido.especialista.email}}</h5>
+      <h5>Especialidad: {{turnoElegido.especialista.especialidad|titlecase}}</h5>
     </div>
   </div>
   <div class="botones">

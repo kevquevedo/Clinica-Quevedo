@@ -108,4 +108,11 @@ export class UsuarioService {
       estado: estado
     })
   }
+
+  actualizarDuracionEspecialista(usuario: any, duracion:boolean) {
+    let userRef = doc(this.firestore, 'usuarios', usuario.id);
+    updateDoc(userRef, {
+      duracionTurno: duracion
+    })
+  }
 }

@@ -1,0 +1,15 @@
+
+<div>
+  <h3 class="fw-bold">Seleccione la Especialidad:</h3>
+  <div class="container-fluid btnEspecialidades tablaEsp" >
+    <tr *ngFor="let esp of especialidadesFiltrada" >
+      <div class="tarjeta" (click)="eligeEspecialidad(esp)">
+        <button>
+          <img src="{{esp.img}}"  alt="..." *ngIf="esp.img != ''">
+          <img src="../../../../assets/varios/especialidad-aux.jpg"  alt="..." *ngIf="esp.img == ''">
+        </button>
+        <h5 class="fw-bold">{{esp.nombre | titlecase}}</h5>
+      </div>
+    </tr>
+  </div>
+</div>

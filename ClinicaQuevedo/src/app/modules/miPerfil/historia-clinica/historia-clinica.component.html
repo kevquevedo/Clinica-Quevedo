@@ -1,0 +1,38 @@
+<main>
+  <h1>Mi Historia Clínica</h1>
+  <div *ngIf="historias != undefined" class="contenido">
+    <button type="button" class="btn btn-info historia-clinica" (click)="crearHistoriaPDF(historias)">Descargar Historia Clínica</button>
+    <h4>Turnos Finalizados</h4>
+    <div class="barra">
+      <input type="text" class="form-control" name="historiasFiltradas" placeholder="Buscar..." [(ngModel)]="historiasFiltradas">
+    </div>
+    <div *ngFor="let historia of historias | historiaspipe : historiasFiltradas" class="datos">
+      <p>
+        <a class="btn btn-primary" data-bs-toggle="collapse" href="#{{historia.id}}" role="button" aria-expanded="false" >
+          {{historia.turno.especialidad|titlecase}} - {{historia.turno.fecha}} - {{historia.turno.hora}}
+        </a>
+      </p>
+      <div class="row">
+        <div class="col">
+          <div class="collapse multi-collapse" id="{{historia.id}}">
+            <div class="card historia">
+              <h5 class="card-header">Datos de Historia Clinica</h5>
+              <div class="card-body">
+                <h5 class="card-title">Altura: {{historia.altura}}</h5>
+                <h5 class="card-title">Peso: {{historia.peso}}</h5>
+                <h5 class="card-title">Temperatura: {{historia.temperatura}}</h5>
+                <h5 class="card-title">Presion: {{historia.presion}}</h5>
+                <h5 class="card-title" *ngIf="historia.clave1 != ''">{{historia.clave1}}: {{historia.valor1}}</h5>
+                <h5 class="card-title" *ngIf="historia.clave2 != ''">{{historia.clave2}}: {{historia.valor2}}</h5>
+                <h5 class="card-title" *ngIf="historia.clave3 != ''">{{historia.clave3}}: {{historia.valor3}}</h5>
+              </div>
+              <div class="card-footer text-body-secondary">
+                <button type="button" class="btn btn-info" (click)="crearTurnoPDF(historia)">Descargar Datos Turno</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

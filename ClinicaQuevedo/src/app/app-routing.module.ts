@@ -14,6 +14,7 @@ const routes: Routes = [
       {path: '', component: BienvenidaComponent},
       {path:'nosotros', component: NosotrosComponent},
       {path:'seccion-usuarios', loadChildren: () => import('./modules/seccionUsuarios/seccion-usuarios.module').then((m) => m.SeccionUsuariosModule)},
+      {path:'seccion-pacientes', loadChildren: () => import('./modules/seccionPacientes/seccion-pacientes.module').then((m) => m.SeccionPacientesModule)},
       {path:'turnos-paciente', loadChildren: () => import('./modules/turnosPaciente/turnos-paciente.module').then((m) => m.TurnosPacienteModule)},
       {path:'turnos-especialista', loadChildren: () => import('./modules/turnosEspecialista/turnos-especialista.module').then((m) => m.TurnosEspecialistaModule)},
       {path:'turnos-admin', loadChildren: () => import('./modules/turnosAdmin/turnos-admin.module').then((m) => m.TurnosAdminModule)},

@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       if(veces == 0){
         veces++;
         respuesta.forEach(usuario => {
-          if((usuario as any).email == 'a.fernandez@clinica.com' ||
+          if((usuario as any).email == 'vartazaknu@gufum.com' ||
              (usuario as any).email == 'g.gutierrez@clinica.com' ||
              (usuario as any).email == 'lekeco3900@anomgo.com' ||
              (usuario as any).email == 'pijebof307@onlcool.com' ||
@@ -114,6 +114,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         }
 
       }else{
+
         this.auth.signOut();
         Swal.fire({
           icon: 'error',
@@ -137,7 +138,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   log(email: string){
 
     switch(email){
-      case 'a.fernandez@clinica.com':
+      case 'vartazaknu@gufum.com':
         this.obtenerDatosUsuario(email);
         setTimeout(() =>{ this.loguearUsuario() }, 2000)
       break;

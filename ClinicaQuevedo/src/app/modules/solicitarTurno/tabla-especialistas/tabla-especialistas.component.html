@@ -1,0 +1,12 @@
+    <!--ESPECIALISTA-->
+    <div >
+      <h3 class="fw-bold">Seleccione el Especialista:</h3>
+      <div class="container-fluid btnEspecialidades tablaEsp" >
+        <tr *ngFor="let esp of especialistas" >
+          <div class="tarjeta" (click)="eligeEspecialista(esp)">
+            <img src="{{esp.img}}" class="card-img-top" alt="...">
+            <h5 class="fw-bold">{{esp.nombre}} {{esp.apellido}}</h5>
+          </div>
+        </tr>
+      </div>
+    </div>

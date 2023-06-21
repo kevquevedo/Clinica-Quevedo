@@ -1,0 +1,19 @@
+button{
+  padding: 0;
+  width: 250px;
+  height: 150px;
+}
+
+img{
+  width: 100%;
+  height: 100%;
+}
+
+.tarjeta{
+  text-align: center;
+  opacity: 0.5;
+}
+
+.tarjeta:hover{
+  opacity: 1;
+}

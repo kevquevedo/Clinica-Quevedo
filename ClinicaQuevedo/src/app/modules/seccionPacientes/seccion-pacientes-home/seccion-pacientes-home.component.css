@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Montserrat+Alternates:ital,wght@1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@1,700&display=swap');
+h1{
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 400;
+  font-size: 25pt;
+  margin-bottom: 50px;
+}
+main{
+
+  padding: 50px;
+}
+
+.contenido{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 600px;
+  margin: 50px;
+}
+
+.row{
+  margin: 50px;
+}
+
+.historia{
+  margin: 0;
+}
+
+.tablaPac{
+  display: flex;
+  flex-direction: row;
+}
+
+tr{
+  margin: 20px;
+}
+
+img{
+  width: 100%;
+  height: 250px;
+  border: 1px solid gray;
+  border-radius: 10px;
+}
+
+.tarjeta{
+  width: 250px;
+  cursor: pointer;
+  text-align: center;
+  opacity: 0.5;
+}
+
+.tarjeta:hover{
+  opacity: 1;
+}
+
+
+.tarjeta:onMousedown{
+  opacity: 1;
+}
+
+h3,h4{
+  margin: 15px;
+}
+
+.row{
+  margin: 10px;
+}
+
+.barra{
+  margin: 40px;
+}
+
+input{
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+

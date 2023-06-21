@@ -10,7 +10,6 @@
                   <th>Paciente</th>
                   <th>Fecha</th>
                   <th>Hora</th>
-                  <th>Especialista</th>
                   <th>Especialidad</th>
                   <th>Estado</th>
                   <th> </th>
@@ -18,14 +17,13 @@
           </thead>
           <tbody>
               <tr *ngFor="let turno of listadoTurnosUsuario | filtropipe : listadoFiltrado">
-                  <td>{{turno.pacienteNombre}}</td>
+                  <td>{{turno.paciente.nombre|titlecase}} {{turno.paciente.apellido|titlecase}}</td>
                   <td>{{turno.fecha}}</td>
-                  <td>{{turno.hora | horapipe}}</td>
-                  <td>{{turno.especialistaNombre}}</td>
-                  <td>{{turno.especialidad}}</td>
+                  <td>{{turno.hora}}</td>
+                  <td>{{turno.especialidad|titlecase}}</td>
                   <td class="neon-verde" *ngIf="turno.estado == 'realizado'">{{turno.estado | titlecase}}</td>
-                  <td class="neon-rojo" *ngIf="turno.estado == 'cancelado'">{{turno.estado | titlecase}}</td>
-                  <td class="neon-amarillo" *ngIf="turno.estado != 'cancelado' && turno.estado != 'realizado'">{{turno.estado | titlecase}}</td>
+                  <td class="neon-rojo" *ngIf="turno.estado == 'cancelado' || turno.estado == 'rechazado'">{{turno.estado | titlecase}}</td>
+                  <td class="neon-amarillo" *ngIf="turno.estado == 'aceptado' || turno.estado == 'pendiente'">{{turno.estado | titlecase}}</td>
                   <td>
                     <button type="button" class="btn btn-success  btn-circle" (click)="eligeTurno(turno)">
                       Más Detalles

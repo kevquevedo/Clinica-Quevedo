@@ -1,0 +1,26 @@
+<div class="contenido">
+  <h1 class="card-title">Mis Horarios:</h1>
+  <div class="card text-center text-bg-info" *ngIf="usuarioRegistrado!=undefined">
+    <div class="card-body">
+      <p class="card-text">Especialidad: {{usuarioRegistrado.especialidad|titlecase}}</p>
+      <p class="card-text">Duración de Turno: {{usuarioRegistrado.duracionTurno}} Minutos</p>
+      <button type="button" class="btn btn-warning" (click)="cambiarHorario()">Cambiar Horario</button>
+      <div class="row" *ngIf="auxHorario">
+        <h4>Elegir Horario:</h4>
+        <div class="col">
+          <button type="button" class="btn btn-success" *ngIf="usuarioRegistrado.duracionTurno != '30'" (click)="elegirDuracion(30)">30 Minutos</button>
+          <button type="button" class="btn btn-secondary" *ngIf="usuarioRegistrado.duracionTurno == '30'" disabled>30 Minutos</button>
+        </div>
+        <div class="col">
+          <button type="button" class="btn btn-success" *ngIf="usuarioRegistrado.duracionTurno != '45'" (click)="elegirDuracion(45)">45 Minutos</button>
+          <button type="button" class="btn btn-secondary" *ngIf="usuarioRegistrado.duracionTurno == '45'" disabled>45 Minutos</button>
+        </div>
+        <div class="col">
+          <button type="button" class="btn btn-success" *ngIf="usuarioRegistrado.duracionTurno != '60'" (click)="elegirDuracion(60)">60 Minutos</button>
+          <button type="button" class="btn btn-secondary" *ngIf="usuarioRegistrado.duracionTurno == '60'" disabled>60 Minutos</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

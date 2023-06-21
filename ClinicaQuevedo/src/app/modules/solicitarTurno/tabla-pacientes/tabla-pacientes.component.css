@@ -1,0 +1,26 @@
+.tablaPac{
+  display: flex;
+  flex-direction: row;
+}
+
+tr{
+  margin: 20px;
+}
+
+img{
+  width: 100%;
+  height: 250px;
+  border: 1px solid gray;
+  border-radius: 10px;
+}
+
+.tarjeta{
+  width: 250px;
+  cursor: pointer;
+  text-align: center;
+  opacity: 0.5;
+}
+
+.tarjeta:hover{
+  opacity: 1;
+}

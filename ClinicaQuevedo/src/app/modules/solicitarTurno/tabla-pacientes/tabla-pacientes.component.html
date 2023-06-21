@@ -1,0 +1,12 @@
+  <!--PACIENTE-->
+  <div >
+    <h3 class="fw-bold">Seleccione el Paciente:</h3>
+    <div class="container-fluid btnEspecialidades tablaPac" >
+      <tr *ngFor="let pac of pacientes" >
+        <div class="tarjeta" (click)="eligePaciente(pac)">
+          <img src="{{pac.imgs.url1}}" class="card-img-top" alt="...">
+          <h5 class="fw-bold">{{pac.nombre}} {{pac.apellido}}</h5>
+        </div>
+      </tr>
+    </div>
+  </div>

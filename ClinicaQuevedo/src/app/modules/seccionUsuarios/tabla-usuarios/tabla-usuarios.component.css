@@ -34,5 +34,9 @@ main{
 
 h1{
   text-decoration: underline;
-  margin-bottom: 30px;
+  margin-bottom: 60px;
+}
+
+.descarga{
+  margin: 10px;
 }

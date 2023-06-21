@@ -1,4 +1,4 @@
-<div>
+<div data-aos="fade-up">
   <app-tabla-usuarios (especialistaSeleccionado)="tomarEspecialista($event)"></app-tabla-usuarios>
 
   <div class="detalle">
@@ -12,6 +12,10 @@
       <button class="btn btn-outline-danger btn-especialista" type="button" routerLink="alta-especialista">Nuevo Especialista</button>
       <button class="btn btn-outline-danger btn-admin" type="button" routerLink="alta-admin">Nuevo Admin</button>
     </div>
-  </div>>
+  </div>
+
+  <div class="historias">
+    <app-historia-clinica></app-historia-clinica>
+  </div>
 
 </div>

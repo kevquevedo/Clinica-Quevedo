@@ -1,0 +1,40 @@
+<main>
+  <h1>Historias Clínicas</h1>
+  <div class="barra">
+    <input type="text" class="form-control" name="historiasFiltradas" placeholder="Buscar..." [(ngModel)]="historiasFiltradas">
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th class="varios">Paciente</th>
+        <th class="varios">Especialista</th>
+        <th class="varios">Fecha</th>
+        <th class="varios">Hora</th>
+        <th class="comentario">Comentario</th>
+        <th class="varios">Peso</th>
+        <th class="temp">Temperatura</th>
+        <th class="varios">Presion</th>
+        <th class="varios">Altura</th>
+        <th class="adicionales">Datos Adicionales</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let historia of historias | historiaspipe : historiasFiltradas">
+        <td class="varios">{{historia.turno.paciente.nombre}} {{historia.turno.paciente.apellido}}</td>
+        <td class="varios">{{historia.turno.especialista.nombre}} {{historia.turno.especialista.apellido}}</td>
+        <td class="varios">{{historia.turno.fecha}}</td>
+        <td class="varios">{{historia.turno.hora}}</td>
+        <td class="comentario">{{historia.comentario}}</td>
+        <td class="varios">{{historia.peso}}KG</td>
+        <td class="temp">{{historia.temperatura}}°C</td>
+        <td class="varios">{{historia.presion}}</td>
+        <td class="varios">{{historia.altura}}mts</td>
+        <td class="adicionales">
+          <p *ngIf="historia.clave1 != ''">{{historia.clave1}} {{historia.valor1}}</p>
+          <p *ngIf="historia.clave2 != ''">{{historia.clave2}} {{historia.valor2}}</p>
+          <p *ngIf="historia.clave3 != ''">{{historia.clave3}} {{historia.valor3}}</p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</main>

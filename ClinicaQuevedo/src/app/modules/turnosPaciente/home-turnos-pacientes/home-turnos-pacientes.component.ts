@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { getAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-turnos-pacientes',
@@ -8,10 +10,18 @@ import { Component, OnInit } from '@angular/core';
 export class HomeTurnosPacientesComponent implements OnInit {
 
   turnoRecibido !: any;
+  emailLogueado!:any;
 
-  constructor() { }
+  constructor(
+    private router: Router,
+  ) { }
 
   ngOnInit(): void {
+    let auth = getAuth();
+    this.emailLogueado = auth.currentUser?.email;
+    if(this.emailLogueado == undefined){
+      this.router.navigateByUrl('');
+    }
   }
 
   tomarTurno(turnoRecibido : any){

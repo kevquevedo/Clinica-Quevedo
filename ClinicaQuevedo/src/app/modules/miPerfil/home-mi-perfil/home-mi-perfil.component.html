@@ -1,4 +1,4 @@
-<main>
+<main data-aos="fade-up">
   <div class="card shadow-lg p-3 bg-info bg-opacity-10 border border-info rounded" style="width: 400px;" *ngIf="usuarioDatos">
     <img src="{{usuarioDatos.img}}" class="card-img-top" alt="..." *ngIf="usuarioDatos.rol == 'admin' || usuarioDatos.rol == 'especialista' ">
     <div id="carouselExample" class="carousel slide" *ngIf="usuarioDatos.rol == 'paciente'">
@@ -19,7 +19,6 @@
         <span class="visually-hidden">Next</span>
       </button>
     </div>
-    <!-- <img src="{{usuarioDatos.imgs.url1}}" class="card-img-top" alt="..." *ngIf="usuarioDatos.rol == 'paciente'"> -->
     <div class="card-body">
       <h3 class="card-title fw-bold">{{usuarioDatos.nombre}} {{usuarioDatos.apellido}}</h3>
     </div>
@@ -30,4 +29,14 @@
       <li class="list-group-item"> <strong>Perfil: </strong>{{usuarioDatos.rol | titlecase}}</li>
     </ul>
   </div>
+
+  <app-historia-clinica
+    class="horarios"
+    *ngIf="usuarioDatos && usuarioDatos.rol == 'paciente'">
+  </app-historia-clinica>
+
+  <app-mis-horarios
+    class="horarios"
+    *ngIf="usuarioDatos && usuarioDatos.rol == 'especialista'">
+  </app-mis-horarios>
 </main>

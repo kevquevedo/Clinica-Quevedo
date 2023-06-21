@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { getAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 import { UsuarioService } from 'src/app/services/UsuarioService/usuario.service';
 
 @Component({
@@ -13,13 +14,16 @@ export class HomeMiPerfilComponent implements OnInit {
   usuarioDatos! : any;
 
   constructor(
-    private uServ : UsuarioService
-  ) {
-    let auth = getAuth();
-    this.usuarioLog = auth.currentUser?.email;
-  }
+    private uServ : UsuarioService,
+    private router: Router,
+  ) { }
 
   ngOnInit(): void {
+    let auth = getAuth();
+    this.usuarioLog = auth.currentUser?.email;
+    if(this.usuarioLog == undefined){
+      this.router.navigateByUrl('');
+    }
     this.uServ.obtenerUsuarios().subscribe( respuesta => {
       respuesta.forEach( usuario =>{
         if( (usuario as any).email == this.usuarioLog){

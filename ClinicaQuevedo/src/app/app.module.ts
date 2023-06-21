@@ -49,6 +49,7 @@ import { RecaptchaModule } from 'ng-recaptcha';
     provideFirestore(() => getFirestore()),
     provideStorage(() => getStorage())
   ],
+  exports:[],
   providers: [],
   bootstrap: [AppComponent]
 })

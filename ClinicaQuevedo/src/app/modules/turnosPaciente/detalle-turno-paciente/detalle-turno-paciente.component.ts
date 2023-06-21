@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { getAuth } from '@angular/fire/auth';
 import { TurnosService } from 'src/app/services/TurnosService/turnos.service';
 import Swal from 'sweetalert2';
@@ -18,7 +18,6 @@ export class DetalleTurnoPacienteComponent implements OnInit{
 
   ngOnInit(): void { }
 
-
   cancelarTurno(turno : any){
     Swal.fire({
       title: 'Por qué cancela el turno?',
@@ -29,14 +28,12 @@ export class DetalleTurnoPacienteComponent implements OnInit{
       showCancelButton: true,
       confirmButtonText: 'Confirmar',
       showLoaderOnConfirm: true,
-      preConfirm: (respuesta) => {
-        console.log(respuesta)
-
-      },
       allowOutsideClick: () => !Swal.isLoading()
     }).then((resultado) => {
       if (resultado.isConfirmed && resultado.value! != "") {
         this.tServ.actualizarEstadoTurno(turno, 'cancelado');
+        this.tServ.actualizarComentarioTurno(turno, resultado.value);
+        this.actualizarTurno(turno);
         Swal.fire({
           title: `Se canceló el turno con éxito`,
         })
@@ -51,7 +48,7 @@ export class DetalleTurnoPacienteComponent implements OnInit{
 
   verResenaComentario(turno : any){
 
-    if(turno.estado == 'cancelado'){
+    if(turno.estado == 'cancelado' && turno.comentarioPac != ''){
       Swal.fire({
         title: '<strong>Comentario Paciente</strong>',
         icon: 'info',
@@ -61,7 +58,17 @@ export class DetalleTurnoPacienteComponent implements OnInit{
       })
     }
 
-    if(turno.estado == 'realizado'){
+    if(turno.estado == 'cancelado' && turno.resenia != ''){
+      Swal.fire({
+        title: '<strong>Reseña Especialista</strong>',
+        icon: 'info',
+        html: turno.resenia,
+        showCloseButton: true,
+        focusConfirm: false,
+      })
+    }
+
+    if(turno.estado == 'realizado' || turno.estado == 'rechazado'){
       Swal.fire({
         title: '<strong>Reseña Especialista</strong>',
         icon: 'info',
@@ -92,6 +99,8 @@ export class DetalleTurnoPacienteComponent implements OnInit{
       console.log(resultado)
       if (resultado.isConfirmed && resultado.value! != "") {
         this.tServ.actualizarAtencionTurno(turno, resultado.value);
+        this.tServ.actualizarComentarioTurno(turno, resultado.value);
+        this.actualizarTurno(turno);
         Swal.fire({
           title: `Se grabó con éxito su comentario.`,
         })

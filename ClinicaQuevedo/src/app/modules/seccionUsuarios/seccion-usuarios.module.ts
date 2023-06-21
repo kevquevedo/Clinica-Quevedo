@@ -9,22 +9,26 @@ import { AltaAdminComponent } from './alta-admin/alta-admin.component';
 import { AltaPacienteComponent } from './alta-paciente/alta-paciente.component';
 import { AltaEspecialistaComponent } from './alta-especialista/alta-especialista.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HistoriaClinicaComponent } from './historia-clinica/historia-clinica.component';
+import { PipesModule } from "../../pipes/pipes.module";
 
 
 @NgModule({
-  declarations: [
-    SeccionUsuariosHomeComponent,
-    TablaUsuariosComponent,
-    DetalleUsuarioComponent,
-    AltaAdminComponent,
-    AltaPacienteComponent,
-    AltaEspecialistaComponent,
-  ],
-  imports: [
-    CommonModule,
-    SeccionUsuariosRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-  ]
+    declarations: [
+        SeccionUsuariosHomeComponent,
+        TablaUsuariosComponent,
+        DetalleUsuarioComponent,
+        AltaAdminComponent,
+        AltaPacienteComponent,
+        AltaEspecialistaComponent,
+        HistoriaClinicaComponent,
+    ],
+    imports: [
+        CommonModule,
+        SeccionUsuariosRoutingModule,
+        FormsModule,
+        ReactiveFormsModule,
+        PipesModule
+    ]
 })
 export class SeccionUsuariosModule { }

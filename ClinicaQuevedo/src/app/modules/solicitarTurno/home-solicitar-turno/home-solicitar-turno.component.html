@@ -1,36 +1,48 @@
-<div class="container py-4">
+<div class="container py-4" data-aos="fade-up">
   <header class="pb-2 mb-2 border-bottom">
     <h2>Solicitar Turno</h2>
   </header>
   <div class="p-5 mb-4 bg-light rounded-3" id="contenedor">
 
-    <!--ESPECIALIDAD-->
-    <div class="container-fluid py-5 btnEspecialidades">
-      <div class="card" style="width: 18rem;">
-        <div class="card-header">
-          Seleccione la Especialidad
+    <!--SELECCION DE ESPECIALISTA-->
+    <app-tabla-especialistas
+      (espSeleccionado)="tomarEspecialista($event)">
+    </app-tabla-especialistas>
+
+    <!--SELECCION DE ESPECIALIDAD-->
+    <app-tabla-especialidades
+      *ngIf="auxEspecialidad"
+      [especialistaRecibido]="especialistaElegido"
+      (especialidadSeleccionado)="tomarEspecialidad($event)">
+    </app-tabla-especialidades>
+
+    <!--SELECCION DE DIA-->
+    <div *ngIf="auxDia">
+      <h3 class="fw-bold">Seleccione la Fecha:</h3>
+      <div class="row">
+        <div class="col dia" *ngFor="let dia of dias" >
+          <button (click)="elegirDia(dia)" type="button" class="btn btn-success btn-dias">{{dia.fecha|fechapipe}}</button>
         </div>
-        <ul class="list-group list-group-flush" *ngFor="let esp of especialidades">
-          <li class="list-group-item" (click)="eligeEspecialidad(esp)">{{esp.nombre | titlecase}}</li>
-        </ul>
       </div>
     </div>
 
-    <!--ESPECIALISTA-->
-    <div class="container-fluid py-5 btnEspecialidades" *ngIf="auxEspecialidad">
-      <h6>Seleccione el Especialista:</h6>
-      <tr *ngFor="let esp of especialistasFilter">
-        <div class="card" style="width: 18rem;">
-          <img src="{{esp.img}}" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">{{esp.nombre}} {{esp.apellido}}</h5>
-            <button type="button" class="btn btn-primary" (click)="eligeEspecialista(esp)">Seleccionar</button>
-          </div>
+    <!--SELECCION DE HORARIO-->
+    <div *ngIf="auxHora">
+      <h3 class="fw-bold">Seleccione la Hora:</h3>
+      <div class="row">
+        <div class="col-2 hora" *ngFor="let hora of horas" >
+          <button *ngIf="hora.ocupado" type="button" class="btn btn-secondary btn-horas" disabled>{{hora.valor|horapipe}}</button>
+          <button *ngIf="!hora.ocupado" (click)="elegirHora(hora)" type="button" class="btn btn-success btn-horas">{{hora.valor|horapipe}}</button>
         </div>
-      </tr>
+      </div>
     </div>
 
-    <!--DIA Y HORARIO-->
-    <div>    </div>
+    <!--SELECCION DE PACIENTE (PARA ADMIN)-->
+
+    <div *ngIf="usuarioRegistrado != undefined && usuarioRegistrado.rol == 'admin' && auxPaciente">
+      <app-tabla-pacientes
+        (pacSeleccionado)="tomarPaciente($event)">
+      </app-tabla-pacientes>
+    </div>
 
 </div>

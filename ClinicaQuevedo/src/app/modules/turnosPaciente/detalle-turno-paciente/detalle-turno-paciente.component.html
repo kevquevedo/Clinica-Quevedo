@@ -3,23 +3,23 @@
 </div>
 <div *ngIf="turnoElegido != undefined" class="d-flex justify-content-center contenido-info shadow p-3 mb-5 bg-body-tertiary rounded">
   <div class="imagen">
-    <img *ngIf="turnoElegido.rol == 'especialista' || turnoElegido.rol == 'admin'" src="{{turnoElegido.img}}" alt="">
-    <img *ngIf="turnoElegido.rol == 'paciente'" src="{{turnoElegido.imgs.url1}}" alt="">
+    <img  src="{{turnoElegido.especialista.img}}" alt="">
   </div>
   <div class="datos">
     <div class="nombre">
-      <h2>{{turnoElegido.especialidad}}</h2>
-      <h2>{{turnoElegido.especialista}}</h2>
+      <h2>{{turnoElegido.especialista.nombre}}</h2>
+      <h2>{{turnoElegido.especialista.apellido}}</h2>
     </div>
     <div>
-      <h5>Email: {{turnoElegido.pacienteEmail}}</h5>
-      <h5>Especialidad: {{turnoElegido.especialidad}}</h5>
-      <h5>Especialista: {{turnoElegido.especialista}}</h5>
+      <h5>Email: {{turnoElegido.especialista.email}}</h5>
+      <h5>Especialidad: {{turnoElegido.especialidad | titlecase}}</h5>
+      <h5>Fecha: {{turnoElegido.fecha}}</h5>
+      <h5>Hora: {{turnoElegido.hora}}</h5>
     </div>
   </div>
   <div class="botones">
     <!-- BOTONES CANCELAR-->
-    <button *ngIf="turnoElegido.estado != 'realizado' && turnoElegido.estado != 'cancelado' " type="button" class="btn btn-danger" (click)="cancelarTurno(turnoElegido)">Cancelar Turno</button>
+    <button *ngIf="turnoElegido.estado != 'realizado' && turnoElegido.estado != 'cancelado' && turnoElegido.estado != 'rechazado' " type="button" class="btn btn-danger" (click)="cancelarTurno(turnoElegido)">Cancelar Turno</button>
     <!-- BOTONES RESEÑA/COMENTARIO-->
     <button *ngIf="turnoElegido.resenia != '' || turnoElegido.comentarioPac != ''" type="button" class="btn btn-success" (click)="verResenaComentario(turnoElegido)">Ver Reseña/Comentario</button>
     <!-- BOTONES ENCUESTA-->

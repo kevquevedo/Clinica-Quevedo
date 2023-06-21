@@ -23,14 +23,17 @@ h2{
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 50px;
 }
 
 .imagenes2{
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 50px;
+}
+
+.imagenes,
+.imagenes2{
+  margin-top: 130px;
 }
 
 .medicos {

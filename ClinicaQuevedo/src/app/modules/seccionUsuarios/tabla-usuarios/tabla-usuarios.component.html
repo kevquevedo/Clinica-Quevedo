@@ -22,4 +22,8 @@
       </tr>
     </tbody>
   </table>
+  <div *ngIf="lista != undefined">
+    <button type="button" class="btn btn-info descarga" (click)="crearExcelPacientes(lista)">Descargar Excel Pacientes</button>
+    <button type="button" class="btn btn-info descarga" (click)="crearExcelEspecialistas(lista)">Descargar Excel Especialistas</button>
+  </div>
 </main>

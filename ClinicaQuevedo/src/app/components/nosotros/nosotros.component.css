@@ -8,8 +8,21 @@ h1{
   margin: 20px;
 }
 p{
-  margin: 10px;
+  margin: 20px;
 }
+
+p:first-of-type{
+  margin-top: 60px;
+}
+
+p:last-of-type{
+  margin-bottom: 60px;
+}
+
+img{
+  width: 60%;
+}
+
 div{
   display: flex;
   flex-direction: column;
@@ -28,4 +41,8 @@ div{
 
 iframe{
   margin-top: 20px;
+}
+
+.contacto{
+  margin: 5px;
 }
