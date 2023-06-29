@@ -1,4 +1,18 @@
 <main>
+  <h1>Informacion de Usuarios</h1>
+  <div *ngIf="lista != undefined">
+    <button type="button" class="btn btn-info descarga" (click)="crearExcelPacientes(lista)">Descargar Excel Pacientes</button>
+    <button type="button" class="btn btn-info descarga" (click)="crearExcelEspecialistas(lista)">Descargar Excel Especialistas</button>
+  </div>
+  <h3>Seleccione un usuario para descargar informacion de turnos:</h3>
+  <div class="contenedorImgs">
+    <div *ngFor="let item of lista" class="listado" (click)="verDatosTurnos(item)">
+      <img *ngIf="item.rol == 'paciente'" src="{{item.imgs.url1}}" alt="">
+      <img *ngIf="item.rol == 'especialista' || item.rol == 'admin'" src="{{item.img}}" alt="">
+      <p>{{item.nombre}} {{item.apellido}}</p>
+    </div>
+  </div>
+
   <h1>Listado de Usuarios</h1>
   <table>
     <thead>
@@ -22,8 +36,4 @@
       </tr>
     </tbody>
   </table>
-  <div *ngIf="lista != undefined">
-    <button type="button" class="btn btn-info descarga" (click)="crearExcelPacientes(lista)">Descargar Excel Pacientes</button>
-    <button type="button" class="btn btn-info descarga" (click)="crearExcelEspecialistas(lista)">Descargar Excel Especialistas</button>
-  </div>
 </main>

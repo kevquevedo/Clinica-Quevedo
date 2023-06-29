@@ -6,7 +6,8 @@ import { HomeMiPerfilComponent } from './home-mi-perfil/home-mi-perfil.component
 import { PipesModule } from 'src/app/pipes/pipes.module';
 import { MisHorariosComponent } from './mis-horarios/mis-horarios.component';
 import { HistoriaClinicaComponent } from './historia-clinica/historia-clinica.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SombraDirective } from 'src/app/directives/SombraDirective/sombra.directive';
 
 
 @NgModule({
@@ -14,11 +15,13 @@ import { FormsModule } from '@angular/forms';
     HomeMiPerfilComponent,
     MisHorariosComponent,
     HistoriaClinicaComponent,
+    SombraDirective,
   ],
   imports: [
     CommonModule,
     PipesModule,
     FormsModule,
+    ReactiveFormsModule,
     MiPerfilRoutingModule
   ]
 })

@@ -20,6 +20,7 @@ const routes: Routes = [
       {path:'turnos-admin', loadChildren: () => import('./modules/turnosAdmin/turnos-admin.module').then((m) => m.TurnosAdminModule)},
       {path:'solicitar-turno', loadChildren: () => import('./modules/solicitarTurno/solicitar-turno.module').then((m) => m.SolicitarTurnoModule)},
       {path:'mi-perfil', loadChildren: () => import('./modules/miPerfil/mi-perfil.module').then((m) => m.MiPerfilModule)},
+      {path:'informes', loadChildren: () => import('./modules/informes/informes.module').then((m) => m.InformesModule)},
     ]
   },
   {path:'login', component: LoginComponent},

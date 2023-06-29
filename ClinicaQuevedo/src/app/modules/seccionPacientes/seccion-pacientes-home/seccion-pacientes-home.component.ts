@@ -3,6 +3,7 @@ import { getAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { HistoriasService } from 'src/app/services/HistoriasService/historias.service';
 import { UsuarioService } from 'src/app/services/UsuarioService/usuario.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-seccion-pacientes-home',
@@ -60,6 +61,16 @@ export class SeccionPacientesHomeComponent implements OnInit {
       if(historia.turno.paciente.email == paciente.email){
         this.historiasPac.push(historia);
       }
+    })
+  }
+
+  verResenia(turno:any){
+    Swal.fire({
+      title: '<strong>Comentario del Turno</strong>',
+      icon: 'info',
+      html: turno.comentario,
+      showCloseButton: true,
+      focusConfirm: false,
     })
   }
 

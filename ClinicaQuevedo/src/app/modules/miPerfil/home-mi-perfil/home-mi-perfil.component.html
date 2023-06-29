@@ -1,5 +1,5 @@
-<main data-aos="fade-up">
-  <div class="card shadow-lg p-3 bg-info bg-opacity-10 border border-info rounded" style="width: 400px;" *ngIf="usuarioDatos">
+<main data-aos="fade-left" data-aos-duration="2000" data-aos-offset="500">
+  <div class="card shadow-lg p-3 bg-info bg-opacity-10 border border-info rounded" style="width: 400px;" *ngIf="usuarioDatos" appSombra>
     <img src="{{usuarioDatos.img}}" class="card-img-top" alt="..." *ngIf="usuarioDatos.rol == 'admin' || usuarioDatos.rol == 'especialista' ">
     <div id="carouselExample" class="carousel slide" *ngIf="usuarioDatos.rol == 'paciente'">
       <div class="carousel-inner">

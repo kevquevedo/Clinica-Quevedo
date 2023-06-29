@@ -1,0 +1,42 @@
+<main>
+  <h3>Turnos Finalizados diferenciado por Medico en Meses</h3>
+  <div class="fondo" id="grafico3">
+    <div class="medico" >
+      <h5 class="fw-bold">{{nombre1}}</h5>
+      <ngx-charts-bar-horizontal
+        [view]="view1"
+        [scheme]="colorScheme1"
+        [results]="informacion1"
+        [gradient]="gradient1"
+        [xAxis]="showXAxis1"
+        [yAxis]="showYAxis1"
+        [legend]="showLegend1"
+        [legendTitle]="titulo"
+        [showXAxisLabel]="showXAxisLabel1"
+        [showYAxisLabel]="showYAxisLabel1"
+        [xAxisLabel]="xAxisLabel1"
+        [yAxisLabel]="yAxisLabel1">
+      </ngx-charts-bar-horizontal>
+    </div>
+    <div class="medico">
+      <h5 class="fw-bold">{{nombre2}}</h5>
+      <ngx-charts-bar-horizontal
+        [view]="view2"
+        [scheme]="colorScheme2"
+        [results]="informacion2"
+        [gradient]="gradient2"
+        [xAxis]="showXAxis2"
+        [yAxis]="showYAxis2"
+        [legend]="showLegend2"
+        [legendTitle]="titulo"
+        [showXAxisLabel]="showXAxisLabel2"
+        [showYAxisLabel]="showYAxisLabel2"
+        [xAxisLabel]="xAxisLabel2"
+        [yAxisLabel]="yAxisLabel2">
+      </ngx-charts-bar-horizontal>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center">
+    <button type="button" class="btn btn-success" (click)="descargarPDF()">Descargar Gráfico - Turnos Finalizados</button>
+  </div>
+</main>

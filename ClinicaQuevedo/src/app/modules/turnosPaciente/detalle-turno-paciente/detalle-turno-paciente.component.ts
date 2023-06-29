@@ -81,8 +81,30 @@ export class DetalleTurnoPacienteComponent implements OnInit{
   }
 
   completarEncuesta(turno : any){
-    this.tServ.actualizarEncuestaTurno(turno, true);
-    this.actualizarTurno(turno);
+    Swal.fire({
+      title: 'Por favor, realice un comentario sobre la atencion.',
+      input: 'text',
+      inputAttributes: {
+        autocapitalize: 'off'
+      },
+      showCancelButton: true,
+      confirmButtonText: 'Confirmar',
+      showLoaderOnConfirm: true,
+      allowOutsideClick: () => !Swal.isLoading()
+    }).then((resultado) => {
+      if (resultado.isConfirmed && resultado.value! != "") {
+        this.tServ.actualizarEncuestaTurno(turno, true, resultado.value);
+        this.actualizarTurno(turno);
+        Swal.fire({
+          title: `Se finalizó la encuesta con éxito`,
+        })
+      }
+      if (resultado.isConfirmed && resultado.value! == "") {
+        Swal.fire({
+          title: `No se procesó la encuesta del turno. Debe ingresar un comentario.`,
+        })
+      }
+    })
   }
 
   calificarAtencion(turno : any){

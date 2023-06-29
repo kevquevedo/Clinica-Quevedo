@@ -4,7 +4,9 @@
     <div class="card-body">
       <p class="card-text">Especialidad: {{usuarioRegistrado.especialidad|titlecase}}</p>
       <p class="card-text">Duración de Turno: {{usuarioRegistrado.duracionTurno}} Minutos</p>
-      <button type="button" class="btn btn-warning" (click)="cambiarHorario()">Cambiar Horario</button>
+      <button type="button" class="btn btn-warning accion-btn" (click)="cambiarHorario()">Cambiar Duracion del Turno</button>
+      <button type="button" class="btn btn-warning accion-btn" (click)="cambiarDias()">Cambiar Dias Laborales</button>
+      <button type="button" class="btn btn-warning accion-btn" (click)="cambiarDisposicion()">Cambiar Disposición Horaria</button>
       <div class="row" *ngIf="auxHorario">
         <h4>Elegir Horario:</h4>
         <div class="col">
@@ -19,8 +21,120 @@
           <button type="button" class="btn btn-success" *ngIf="usuarioRegistrado.duracionTurno != '60'" (click)="elegirDuracion(60)">60 Minutos</button>
           <button type="button" class="btn btn-secondary" *ngIf="usuarioRegistrado.duracionTurno == '60'" disabled>60 Minutos</button>
         </div>
-
       </div>
+
+      <div class="row" *ngIf="auxDias">
+        <h4>Elegir Dias:</h4>
+        <div class="col-4" *ngFor="let dia of diasLaborales">
+          <button type="button" class="btn btn-success diasLab" *ngIf="dia.laborable" (click)="deshabilitarDia(dia)">{{dia.dia|titlecase}}</button>
+          <button type="button" class="btn btn-secondary diasLab" *ngIf="!dia.laborable" (click)="habilitarDia(dia)">{{dia.dia|titlecase}}</button>
+        </div>
+      </div>
+
+      <div class="row" *ngIf="auxDisposicion">
+        <h4>Elegir Disposicion Horaria:</h4>
+        <div class="col-4" *ngFor="let dia of diasLaborales">
+          <div *ngIf="dia.laborable">
+            <h6 class="fw-bold">{{dia.dia|titlecase}}</h6>
+            <h6>Desde: {{dia.horaDesde}}</h6>
+            <h6>Hasta: {{dia.horaHasta}}</h6>
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalHorarios" (click)="irAHorarios(dia)">Actualizar Horarios</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="modalHorarios"  tabindex="-1" aria-labelledby="modalHorariosLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="modalHorariosLabel">Actualizar Horarios</h1>
+            </div>
+            <div class="modal-body">
+
+              <div *ngIf="diaElegido != undefined && diaElegido.dia == 'sabado'">
+
+                <div class="horas">
+                  <div class="form-floating form-control-group p-2 comboEsp" >
+                    <select class="form-select" id="hora-desde" required >
+                      <option selected disabled value="">Elegí el horario...</option>
+                      <option value="1">8AM</option>
+                      <option value="2">9AM</option>
+                      <option value="3">10AM</option>
+                      <option value="4">11AM</option>
+                      <option value="5">12PM</option>
+                      <option value="6">13PM</option>
+                    </select>
+                    <label class="form-label" for="hora-desde">Hora Desde</label>
+                  </div>
+                  <div class="form-floating form-control-group p-2 comboEsp" >
+                    <select class="form-select" id="hora-hasta" required>
+                      <option selected disabled value="">Elegí el horario...</option>
+                      <option value="2">9AM</option>
+                      <option value="3">10AM</option>
+                      <option value="4">11AM</option>
+                      <option value="5">12PM</option>
+                      <option value="6">13PM</option>
+                      <option value="7">14PM</option>
+                    </select>
+                    <label class="form-label" for="hora-hasta">Hora Hasta</label>
+                  </div>
+                </div>
+
+              </div>
+
+              <div *ngIf="diaElegido != undefined && diaElegido.dia != 'sabado'">
+
+                <div class="horas">
+                  <div class="form-floating form-control-group p-2 comboEsp" >
+                    <select class="form-select" id="hora-desde" required>
+                      <option selected disabled value="">Elegí el horario...</option>
+                      <option value="1">8AM</option>
+                      <option value="2">9AM</option>
+                      <option value="3">10AM</option>
+                      <option value="4">11AM</option>
+                      <option value="5">12PM</option>
+                      <option value="6">13PM</option>
+                      <option value="7">14PM</option>
+                      <option value="8">15PM</option>
+                      <option value="9">16PM</option>
+                      <option value="10">17PM</option>
+                      <option value="11">18PM</option>
+                    </select>
+                    <label class="form-label" for="hora-desde">Hora Desde</label>
+                  </div>
+                  <div class="form-floating form-control-group p-2 comboEsp" >
+                    <select class="form-select" id="hora-hasta" required>
+                      <option selected disabled value="">Elegí el horario...</option>
+                      <option value="2">9AM</option>
+                      <option value="3">10AM</option>
+                      <option value="4">11AM</option>
+                      <option value="5">12PM</option>
+                      <option value="6">13PM</option>
+                      <option value="7">14PM</option>
+                      <option value="8">15PM</option>
+                      <option value="9">16PM</option>
+                      <option value="10">17PM</option>
+                      <option value="11">18PM</option>
+                      <option value="12">19PM</option>
+                    </select>
+                    <label class="form-label" for="hora-hasta">Hora Hasta</label>
+                  </div>
+                </div>
+
+              </div>
+
+              <small *ngIf="mensajeError" class="text-danger">{{mensajeError}}</small> <br>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-success" (click)="actualizarHorarios(diaElegido) " >Avanzar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>

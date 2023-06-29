@@ -34,6 +34,7 @@ export class TablaEspecialidadesComponent implements OnInit, OnChanges {
     this.especialidadesFiltrada = [];
     this.especialidades.forEach(especialidad => {
       if(especialidad.nombre == especialista.especialidad){
+        console.log(especialidad)
         this.especialidadesFiltrada.push(especialidad)
       }
     })

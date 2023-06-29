@@ -4,7 +4,6 @@ import { NotFoundComponent } from 'src/app/components/not-found/not-found.compon
 import { HomeMiPerfilComponent } from './home-mi-perfil/home-mi-perfil.component';
 
 const routes: Routes = [
-
   {path:'', component:HomeMiPerfilComponent},
   {path:'**', component: NotFoundComponent}
 ];

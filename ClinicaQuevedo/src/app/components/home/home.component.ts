@@ -8,10 +8,14 @@ import { UsuarioService } from 'src/app/services/UsuarioService/usuario.service'
 })
 export class HomeComponent implements OnInit {
 
-  constructor(
+  loading! : boolean;
 
-  ) { }
+  constructor( ) {
+    this.loading = true;
+  }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    setTimeout(() =>{ this.loading= false; }, 1000)
+  }
 
 }

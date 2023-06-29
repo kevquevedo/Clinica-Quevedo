@@ -21,7 +21,9 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { PipesModule } from './pipes/pipes.module';
 import { RecaptchaModule } from 'ng-recaptcha';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TituloDirective } from './directives/TituloDirective/titulo.directive';
+import { NotImageDirective } from './directives/NotImageDirective/not-image.directive';
 
 @NgModule({
   declarations: [
@@ -36,9 +38,11 @@ import { RecaptchaModule } from 'ng-recaptcha';
     FooterComponent,
     ValoresComponent,
     CoberturasComponent,
+    TituloDirective,
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
     PipesModule,

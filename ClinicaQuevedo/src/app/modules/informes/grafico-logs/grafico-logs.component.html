@@ -1,0 +1,17 @@
+<main>
+  <h3>Logs de Usuarios</h3>
+  <div id="grafico4">
+    <div *ngFor="let ultcon of usuariosUltCon">
+      <h5 class="fw-bold">Ultima Conexión '{{ultcon.email}}':</h5>
+      <p>Fecha: {{ultcon.fecha}} - Hora: {{ultcon.hora}}</p>
+    </div>
+    <ngx-charts-pie-grid
+      [view]="view"
+      [scheme]="colorScheme"
+      [results]="informacion">
+    </ngx-charts-pie-grid>
+  </div>
+  <div class="d-flex justify-content-center">
+    <button type="button" class="btn btn-success" (click)="descargarPDF()">Descargar Gráfico - Logs de Usuarios</button>
+  </div>
+</main>

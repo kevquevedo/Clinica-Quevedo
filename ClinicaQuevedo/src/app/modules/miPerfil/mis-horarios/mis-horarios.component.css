@@ -18,3 +18,12 @@ h1{
 .row{
   margin: 50px;
 }
+
+.diasLab{
+  width: 100px;
+  margin: 5px;
+}
+
+.accion-btn{
+  margin: 10px;
+}

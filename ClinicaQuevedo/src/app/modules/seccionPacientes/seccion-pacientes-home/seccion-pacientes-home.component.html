@@ -1,4 +1,4 @@
-<main data-aos="fade-up">
+<main data-aos="fade-left" data-aos-duration="2000" data-aos-offset="500">
   <h1>Mis Historias Clínicas</h1>
 
   <div *ngIf="historias != undefined && historias.length > 0">
@@ -30,23 +30,28 @@
           <div class="col">
             <div class="collapse multi-collapse" id="{{historia.id}}">
               <div class="card historia">
-                <h5 class="card-header fst-italic fw-bolder">Datos de Historia Clinica</h5>
+                <h5 class="card-header fst-italic fw-bolder">Datos del Turno</h5>
                 <div class="card-body">
+                  <h5 class="fst-italic fw-bolder datosad">Datos del Paciente</h5>
                   <h5 class="card-title">Paciente: {{historia.turno.paciente.nombre}} {{historia.turno.paciente.apellido}}</h5>
                   <h5 class="card-title">Obra Social: {{historia.turno.paciente.obrasocial}}</h5>
                   <h5 class="card-title">Edad: {{historia.turno.paciente.edad}}</h5>
                   <h5 class="card-title">Email: {{historia.turno.paciente.email}}</h5>
+                  <h5 class="fst-italic fw-bolder datosad">Datos del Turno</h5>
                   <h5 class="card-title">Especialidad: {{historia.turno.especialidad | titlecase}}</h5>
+                  <h5 class="card-title">Fecha: {{historia.turno.fecha}}</h5>
+                  <h5 class="card-title">Hora: {{historia.turno.hora}}</h5>
                   <h5 class="card-title">Altura: {{historia.altura}}</h5>
                   <h5 class="card-title">Peso: {{historia.peso}}</h5>
                   <h5 class="card-title">Temperatura: {{historia.temperatura}}</h5>
                   <h5 class="card-title">Presion: {{historia.presion}}</h5>
                   <div *ngIf="historia.clave1 != '' || historia.clave2 != '' || historia.clave3 != ''">
-                    <h4 class="fst-italic fw-bolder">Datos Adicionales</h4>
+                    <h5 class="fst-italic fw-bolder datosad">Datos Adicionales</h5>
                     <h5 class="card-title" *ngIf="historia.clave1 != ''">{{historia.clave1}}: {{historia.valor1}}</h5>
                     <h5 class="card-title" *ngIf="historia.clave2 != ''">{{historia.clave2}}: {{historia.valor2}}</h5>
                     <h5 class="card-title" *ngIf="historia.clave3 != ''">{{historia.clave3}}: {{historia.valor3}}</h5>
                   </div>
+                  <button type="button" class="btn btn-info" (click)="verResenia(historia)">Ver Reseña</button>
                 </div>
               </div>
             </div>

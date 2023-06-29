@@ -24,11 +24,23 @@ export class ListadoTurnosAdminComponent implements OnInit {
       respuesta.forEach( (turno:any) => {
         this.listadoTurnos.push(turno);
       });
+      this.listadoTurnos.sort(this.ordenarPorFechaYHora)
     })
   }
 
   eligeTurno(turno: any) {
     this.turnoSeleccionado.emit(turno);
+  }
+
+  ordenarPorFechaYHora(turno1: any, turno2: any) {
+    let tur1 = (turno1.fecha as string).substring(6,10) + (turno1.fecha as string).substring(3,5) + (turno1.fecha as string).substring(0,2);
+    let tur2 = (turno2.fecha as string).substring(6,10) + (turno2.fecha as string).substring(3,5) + (turno2.fecha as string).substring(0,2);
+    if(tur1 < tur2){
+      return 1;
+    }else if(tur1 > tur2){
+      return -1;
+    }
+    return 0;
   }
 
 }

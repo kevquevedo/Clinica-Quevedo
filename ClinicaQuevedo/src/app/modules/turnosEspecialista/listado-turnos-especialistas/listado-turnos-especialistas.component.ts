@@ -28,6 +28,7 @@ export class ListadoTurnosEspecialistasComponent implements OnInit {
           this.listadoTurnosUsuario.push(turno);
         }
       });
+      this.listadoTurnosUsuario.sort(this.ordenarPorFechaYHora)
     })
   }
 
@@ -35,4 +36,14 @@ export class ListadoTurnosEspecialistasComponent implements OnInit {
     this.turnoSeleccionado.emit(turno);
   }
 
+  ordenarPorFechaYHora(turno1: any, turno2: any) {
+    let tur1 = (turno1.fecha as string).substring(6,10) + (turno1.fecha as string).substring(3,5) + (turno1.fecha as string).substring(0,2);
+    let tur2 = (turno2.fecha as string).substring(6,10) + (turno2.fecha as string).substring(3,5) + (turno2.fecha as string).substring(0,2);
+    if(tur1 < tur2){
+      return 1;
+    }else if(tur1 > tur2){
+      return -1;
+    }
+    return 0;
+  }
 }

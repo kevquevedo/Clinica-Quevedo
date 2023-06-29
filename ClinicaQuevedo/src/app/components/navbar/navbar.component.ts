@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { UsuarioService } from 'src/app/services/UsuarioService/usuario.service';
 
@@ -13,9 +14,11 @@ export class NavbarComponent implements OnInit, OnDestroy {
   rol: string | undefined;
   subsUsuario!: Subscription;
   fotoPerfil! : any;
+  nombre! : any;
 
   constructor(
-    private uServ : UsuarioService
+    private uServ : UsuarioService,
+    private router : Router
   ){
     this.usuario = this.uServ.usuarioRegistrado;
     this.verificarImagen(this.uServ.usuarioRegistrado);
@@ -35,6 +38,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   cerrarSesion(){
     this.uServ.logOut();
+    this.router.navigateByUrl('')
   }
 
   verificarImagen(email : any){
@@ -46,6 +50,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
           }else{
             this.fotoPerfil = usuario.imgs.url1;
           }
+          this.nombre = usuario.nombre + ' ' + usuario.apellido;
         }
       });
     }

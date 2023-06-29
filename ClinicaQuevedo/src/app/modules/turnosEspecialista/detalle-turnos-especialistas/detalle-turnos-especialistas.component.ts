@@ -169,15 +169,14 @@ export class DetalleTurnosEspecialistasComponent implements OnInit {
 
   verResenaComentario(turno : any){
 
-    if(turno.estado == 'cancelado' && turno.comentarioPac != ''){
-      Swal.fire({
-        title: '<strong>Comentario Paciente</strong>',
-        icon: 'info',
-        html: turno.comentarioPac,
-        showCloseButton: true,
-        focusConfirm: false,
-      })
-    }
+    Swal.fire({
+      title: '<strong>Comentario Paciente</strong>',
+      icon: 'info',
+      html: turno.comentarioPac,
+      showCloseButton: true,
+      focusConfirm: false,
+    })
+
 
     if(turno.estado == 'cancelado' && turno.resenia != ''){
       Swal.fire({

@@ -2,6 +2,19 @@
   <h1>Mi Historia Clínica</h1>
   <div *ngIf="historias != undefined" class="contenido">
     <button type="button" class="btn btn-info historia-clinica" (click)="crearHistoriaPDF(historias)">Descargar Historia Clínica</button>
+
+    <h4>Descargar Turnos por Especialista</h4>
+    <div >
+      <div class="container-fluid btnEspecialidades tablaEsp" >
+        <tr *ngFor="let esp of especialistasFiltrados" >
+          <div class="tarjeta" (click)="eligeEspecialista(esp)">
+            <img src="{{esp.img}}" class="card-img-top" alt="...">
+            <h5 class="fw-bold">{{esp.nombre}} {{esp.apellido}}</h5>
+          </div>
+        </tr>
+      </div>
+     </div>
+
     <h4>Turnos Finalizados</h4>
     <div class="barra">
       <input type="text" class="form-control" name="historiasFiltradas" placeholder="Buscar..." [(ngModel)]="historiasFiltradas">

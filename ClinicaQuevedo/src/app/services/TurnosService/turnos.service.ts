@@ -29,10 +29,11 @@ export class TurnosService {
     })
   }
 
-  actualizarEncuestaTurno(turno: any, estadoEncuesta:boolean){
+  actualizarEncuestaTurno(turno: any, estadoEncuesta:boolean, encuestaComentario:string){
     let turnoRef = doc(this.firestore, 'turnos', turno.id);
     updateDoc(turnoRef, {
-      encuesta: estadoEncuesta
+      encuesta: estadoEncuesta,
+      encuestaCom: encuestaComentario
     })
   }
 

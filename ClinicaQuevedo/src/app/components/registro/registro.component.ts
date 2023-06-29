@@ -6,6 +6,7 @@ import { UsuarioService } from 'src/app/services/UsuarioService/usuario.service'
 import { Storage, ref } from '@angular/fire/storage';
 import { getDownloadURL, uploadBytes } from 'firebase/storage';
 import Swal from 'sweetalert2';
+import { DisponibilidadService } from 'src/app/services/DisponibilidadService/disponibilidad.service';
 
 @Component({
   selector: 'app-registro',
@@ -33,7 +34,8 @@ export class RegistroComponent implements OnInit {
     private auth : Auth,
     private router: Router,
     private uServ : UsuarioService,
-    private storage: Storage
+    private storage: Storage,
+    private dServ : DisponibilidadService
   ) {
     this.loading = true;
     this.spinner = false;
@@ -394,6 +396,8 @@ export class RegistroComponent implements OnInit {
             this.nombreEsp?.value, this.apellidoEsp?.value, this.edadEsp?.value, this.dniEsp?.value,
             especialidadEsp, this.mailEsp?.value, this.claveEsp?.value, this.urlEsp, 'especialista'
           );
+
+          this.dServ.crearDisponibilidad(this.mailEsp?.value,especialidadEsp);
 
           let auth = getAuth();
           sendEmailVerification(auth.currentUser!)

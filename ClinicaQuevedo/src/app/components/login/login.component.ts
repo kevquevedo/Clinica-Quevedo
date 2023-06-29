@@ -3,6 +3,7 @@ import { Auth, getAuth, sendEmailVerification, signInWithEmailAndPassword } from
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription, flatMap } from 'rxjs';
+import { LogUsuariosService } from 'src/app/services/LogUsuarios/log-usuarios.service';
 import { UsuarioService } from 'src/app/services/UsuarioService/usuario.service';
 import Swal from 'sweetalert2';
 
@@ -24,7 +25,8 @@ export class LoginComponent implements OnInit, OnDestroy {
   constructor(
     private auth: Auth,
     private router: Router,
-    private uServ: UsuarioService
+    private uServ: UsuarioService,
+    private lServ: LogUsuariosService
   ) {
     this.spinner = false;
     this.loading = true;
@@ -57,7 +59,7 @@ export class LoginComponent implements OnInit, OnDestroy {
              (usuario as any).email == 'g.gutierrez@clinica.com' ||
              (usuario as any).email == 'lekeco3900@anomgo.com' ||
              (usuario as any).email == 'pijebof307@onlcool.com' ||
-             (usuario as any).email == 'r.ramirez@clinica.com' ||
+             (usuario as any).email == 'givaka6508@devswp.com' ||
              (usuario as any).email == 'quevedo.kevin1994@gmail.com' ){
 
             let imagen;
@@ -109,6 +111,7 @@ export class LoginComponent implements OnInit, OnDestroy {
             timer: 2000
           })
         }else{
+          this.lServ.actualizarLogUsuarios(respuesta.user.email!);
           this.uServ.loguearUsuario(respuesta.user.email!);
           this.router.navigateByUrl('');
         }
@@ -158,7 +161,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         setTimeout(() =>{ this.loguearUsuario() }, 2000)
       break;
 
-      case 'r.ramirez@clinica.com':
+      case 'givaka6508@devswp.com':
         this.obtenerDatosUsuario(email);
         setTimeout(() =>{ this.loguearUsuario() }, 2000)
       break;

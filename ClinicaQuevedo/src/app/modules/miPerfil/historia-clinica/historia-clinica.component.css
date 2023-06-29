@@ -46,3 +46,21 @@ input{
   justify-content: center;
   text-align: center;
 }
+
+img{
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+}
+
+.tarjeta{
+  cursor: pointer;
+  margin: 20px;
+}
+
+.tablaEsp{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 20px;
+}
